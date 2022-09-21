@@ -4,7 +4,17 @@ class PhotoView(TemplatesView):
     template_name = 'photo.html'
 
 def get_context_data(self, **kwargs):
-    
-    return {'photo': "/static/images/chapter-2.jpg"}
+    name = kwargs['name']
 
-"/static/images/chapter-1.jpg"
+    image = f'/static/images/{name}'
+    
+    return {'photo': image}
+
+
+class PhotoListView(TemplateView):
+    template_name = 'photos.html'
+
+    def get_context_data(self, **kwargs):
+         photos = Path('static/images').iterdir()
+         photos = [ f for i, f in (photos)]
+         return dict(photos=photos())
