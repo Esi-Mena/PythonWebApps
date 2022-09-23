@@ -11,7 +11,7 @@ def get_context_data(self, **kwargs):
     return {'photo': image}
 
 
-class PhotoListView(TemplateView):
+class PhotoListView(TemplatesView):
     template_name = 'photos.html'
 
     def get_context_data(self, **kwargs):
