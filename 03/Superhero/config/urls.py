@@ -7,9 +7,9 @@ from hero.views import HeroDetailView, HeroListView
 urlpatterns = [
 
     # Home
-    path('', RedirectView.as_view(url='hero/')),
+    path('', RedirectView.as_view(url='heroes/')),
 
     # Photos
-    path('hero/', HeroListView.as_view()),
-    path('hero/<int:id>', HeroDetailView.as_view()),
+    path('heroes/', HeroListView.as_view()),
+    path('heroes/<int:id>', HeroDetailView.as_view()),
 ]

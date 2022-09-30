@@ -7,19 +7,19 @@
 <h3>Heroes  Detail</h3>
 
 <p>
-    <img class="hero" src="/{{ hero.file }}" alt="Chapter {{ hero.id }}">
+    <img class="heroes" src="/{{ heroes.file }}" alt="Chapter {{ heroes.id }}">
 </p>
 <p>
     CAPTION:
-    {% if hero.caption %}
-    {{ hero.caption }}
+    {% if heroes.caption %}
+    {{ heroes.caption }}
     {% else %}
     No caption
     {% endif%}
 
 </p>
 <p>
-    FILE PATH: {{ hero.file }}
+    FILE PATH: {{ heroes.file }}
 </p>
 
 
