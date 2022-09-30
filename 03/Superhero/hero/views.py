@@ -16,7 +16,7 @@ class HeroListView(TemplateView):
     template_name = 'heroes.html'
 
     def get_context_data(self, **kwargs):
-        return dict(hero=hero_list())
+        return dict(heroes=hero_list())
 
 
 class HeroDetailView(TemplateView):

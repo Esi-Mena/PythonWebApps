@@ -11,5 +11,5 @@ urlpatterns = [
 
     # Photos
     path('hero/', HeroListView.as_view()),
-    path('photo/<int:id>', HeroDetailView.as_view()),
+    path('hero/<int:id>', HeroDetailView.as_view()),
 ]
