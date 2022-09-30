@@ -7,23 +7,23 @@ def hero_list():
         caption = f'Caption for Hero {i}' if i == 1 else None
         return dict(id=i, file=f, caption=caption)
 
-    hero = Path('static/images').iterdir()
-    hero = [hero_details(i, f) for i, f in enumerate(hero)]
-    return hero
+    heroes = Path('static/images').iterdir()
+    heroes = [hero_details(i, f) for i, f in enumerate(heroes)]
+    return heroes
 
 
-class PhotoListView(TemplateView):
-    template_name = 'hero.html'
+class HeroListView(TemplateView):
+    template_name = 'heroes.html'
 
     def get_context_data(self, **kwargs):
         return dict(hero=hero_list())
 
 
-class PhotoDetailView(TemplateView):
+class HeroDetailView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
         i = kwargs['id']
-        hero = hero_list()
-        p = hero[i]
+        heroes = hero_list()
+        p = heroes[i]
         return dict(hero=p)
