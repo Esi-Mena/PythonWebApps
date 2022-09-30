@@ -1,6 +1,26 @@
-<h1>{{ title }}</h1>
-<p>{{ body }}</p>
-<img src="{{ hero }}" alt="{{ hero }}" width="300">
+{% extends 'superhero_theme.html' %}
+
+
+
+{% block content %}
+
+<h3>Heroes  Detail</h3>
+
 <p>
-    <a href=".">Show all heroes</a>
+    <img class="hero" src="/{{ hero.file }}" alt="Chapter {{ hero.id }}">
 </p>
+<p>
+    CAPTION:
+    {% if hero.caption %}
+    {{ hero.caption }}
+    {% else %}
+    No caption
+    {% endif%}
+
+</p>
+<p>
+    FILE PATH: {{ hero.file }}
+</p>
+
+
+{% endblock content %}

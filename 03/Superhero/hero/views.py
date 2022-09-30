@@ -1,49 +1,29 @@
+from pathlib import Path
 from django.views.generic import TemplateView
 
 
-class IndexView(TemplateView):
-    template_name = 'heroes.html'
+def hero_list():
+    def hero_details(i, f):
+        caption = f'Caption for Hero {i}' if i == 1 else None
+        return dict(id=i, file=f, caption=caption)
+
+    hero = Path('static/images').iterdir()
+    hero = [hero_details(i, f) for i, f in enumerate(hero)]
+    return hero
 
 
-class HulkView(TemplateView):
+class PhotoListView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
-        return {
-            'title': 'Hulk',
-            'body': 'My name is Bruce Banner',
-            'image': '/static/images/hulk.jpg'
-        }
+        return dict(hero=hero_list())
 
 
-class IronManView(TemplateView):
-    template_name = "hero.html"
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Iron Man',
-            'body': 'My name is Tony Stark, but I am Iron Man',
-            'image': '/static/images/iron_man.jpg'
-        }
-
-
-class BlackWidow(TemplateView):
+class PhotoDetailView(TemplateView):
     template_name = 'hero.html'
 
     def get_context_data(self, **kwargs):
-        return {
-            'title': 'Black Widow',
-            'body': 'My name is Natasha Romanova',
-            'image': '/static/images/black_widow.jpg'
-        }
-
-class DannyDavito(TemplateView):
-    template_name = 'hero.html'
-
-    def get_context_data(self, **kwargs):
-        return {
-            'title': 'Danny Davito',
-            'body': 'The true Hero',
-            'image': '/static/images/Danny_Davito.jpg'
-        }
-
+        i = kwargs['id']
+        hero = hero_list()
+        p = hero[i]
+        return dict(hero=p)

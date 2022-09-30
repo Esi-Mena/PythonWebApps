@@ -1,11 +1,15 @@
+from django.views.generic import RedirectView
 from django.urls import path
-from .views import BlackWidow, HulkView, IndexView, IronManView, DannyDavito
+
+from hero.views import HeroDetailView, HeroListView
+
 
 urlpatterns = [
-    path('', IndexView.as_view()),
-    path('hulk', HulkView.as_view()),
-    path('ironman', IronManView.as_view()),
-    path('blackwidow', BlackWidow.as_view()),
-    path('DannyDavito',DannyDavito.as_view()),
-    
+
+    # Home
+    path('', RedirectView.as_view(url='hero/')),
+
+    # Photos
+    path('hero/', HeroListView.as_view()),
+    path('photo/<int:id>', HeroDetailView.as_view()),
 ]

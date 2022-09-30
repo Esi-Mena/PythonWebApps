@@ -1,7 +1,15 @@
-<h1>My Superhero List</h1>
-<ul>
-    <li><a href="hulk">Hulk</a></li>
-    <li><a href="blackwidow">Black Widow</a></li>
-    <li><a href="ironman">Iron Man</a></li>
-    <li><a href="DannyDavito">Danny Davito</a></li>
-</ul>
+{% extends 'superhero_theme.html' %}
+
+
+
+{% block content %}
+
+{% for hero in heroes %}
+
+<a href="/hero/{{ hero.id }}">
+    <img class="hero" src="/{{ hero.file }}" alt="Chapter {{ hero.id }}" width="200">
+</a>
+
+{% endfor %}
+
+{% endblock content %}

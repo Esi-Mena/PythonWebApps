@@ -8,7 +8,7 @@ def get_context_data(self, **kwargs):
 
     image = f'/static/images/{name}'
     
-    return {'photo': image}
+    return {'photo': image} 
 
 
 class PhotoListView(TemplatesView):
