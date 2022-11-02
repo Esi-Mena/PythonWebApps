@@ -21,13 +21,13 @@ class HeroCreateView(LoginRequiredMixin,CreateView):
     fields = '__all__'
 
 
-class HeroUpdateView(UpdateView):
+class HeroUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "hero/edit.html"
     model = Superhero
     fields = '__all__'
 
 
-class HeroDeleteView(DeleteView):
+class HeroDeleteView(LoginRequiredMixin,DeleteView):
     model = Superhero
     template_name = 'hero/delete.html'
     success_url = reverse_lazy('hero_list')
