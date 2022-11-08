@@ -15,11 +15,10 @@ class Superhero(models.Model):
 
     def get_absolute_url(self):
             return reverse_lazy('hero_list')
+class Article (models.Model):
 
-# class Article (models.Model):
-
-#     author = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
-#     hero = models.ForeignKey(Superhero, on_delete=models.CASCADE)
-#     title = models.CharField(max_length=100)
-#     body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
+    hero = models.ForeignKey(Superhero, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    body = models.TextField()
 

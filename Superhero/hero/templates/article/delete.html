@@ -1,5 +1,6 @@
 {% extends 'theme.html' %}
 
+
 {% block title %}
 Delete Article
 {% endblock title %}
@@ -7,13 +8,9 @@ Delete Article
 
 {% block content %}
 
-<div class="container m-5">
-
-    <form action="" method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ object.title }}"?</p>
-        <input type="submit" value="Confirm">
-    </form>
-
-</div>
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object.title }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
 
 {% endblock content %}

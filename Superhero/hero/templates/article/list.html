@@ -1,37 +1,34 @@
 {% extends 'theme.html' %}
 
 
-{% block title %}
-List of Heroes
-{% endblock title %}
-
 
 {% block content %}
 
-<div class="row">
+<div class="container-fluid m-5">
 
-    <div class="card col-lg">
+    <h1 class="text-primary text-center">List of Articles</h1>
 
-        <table class="table table-hover">
-            <tr>
-                <th>Name</th>
-                <th>ID</th>
-            </tr>
+    <table class="table table-hover">
+        <tr>
+            <th>Article</th>
+            <th>Author</th>
+            <th>Edit</th>
+        </tr>
 
-            {% for hero in object_list %}
-            <tr>
-                <td><a href="/{{ hero.pk }}">{{ hero.name }}</a></td>
-                <td>{{ hero.identity }}</td>
-            </tr>
-            {% endfor %}
+        {% for article in object_list %}
+        <tr>
+            <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
+            <td><a href="/author/{{ article.author.pk }}">{{ article.author.user.username }}</a></td>
+            <td><a href="/article/{{ article.pk }}/">Edit</a></td>
+            <td><a href="/article/{{ article.pk }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
 
-        </table>
+    </table>
 
-        <p>
-            <a href="/add" class="btn btn-success m-5">Add New Hero</a>
-        </p>
-
-    </div>
+    <p>
+        <a href="/article/add" class="btn btn-success m-5">Add New Article</a>
+    </p>
 
 </div>
 
