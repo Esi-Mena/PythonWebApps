@@ -14,6 +14,9 @@ Log In
 
 
 {% block content %}
+<div class="container m-5">
+
+ <h2 class="">Log In</h2>
 
 <form method="post" class="m-5">
     {% csrf_token %}
@@ -22,5 +25,5 @@ Log In
 
     <button type="submit" class="btn btn-primary m-5">Log In</button>
 </form>
-
+</div>
 {% endblock content %}

@@ -10,8 +10,6 @@ Add New Hero
 <div class="container m-5">
 
     {% load crispy_forms_tags %}
-
-
     <form action="" method="post">{% csrf_token %}
 
         {{ form|crispy }}
@@ -20,6 +18,8 @@ Add New Hero
         <a class="btn btn-success m-5" href="delete">Delete Record</a>
 
     </form>
+
+    
 
 </div>
 
