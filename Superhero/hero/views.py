@@ -48,7 +48,19 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 class ArticleUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "article_edit.html"
+    template_name = "article/edit.html"
     model = Article
     fields = '__all__'
 
+class ArticleDetailView(DetailView):
+    template_name = 'article/detail.html'
+    model = Article
+
+class ArticleListView(ListView):
+    template_name = 'article/list.html'
+    model = Article
+
+class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+    model = Article
+    template_name = 'article_delete.html'
+    success_url = reverse_lazy('article_list')
