@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Superhero, Article
+from .models import Superhero
 from django.contrib.auth.forms import UserCreationForm
 
 class HeroListView(ListView):
@@ -38,29 +38,3 @@ class UserAddView(CreateView):
     template_name = 'registration/add.html'
 
 
-class ArticleCreateView(LoginRequiredMixin, CreateView):
-    template_name = "article_add.html"
-    model = Article
-    fields = '__all__'
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "article/edit.html"
-    model = Article
-    fields = '__all__'
-
-class ArticleDetailView(DetailView):
-    template_name = 'article/detail.html'
-    model = Article
-
-class ArticleListView(ListView):
-    template_name = 'article/list.html'
-    model = Article
-
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
-    model = Article
-    template_name = 'article_delete.html'
-    success_url = reverse_lazy('article_list')
