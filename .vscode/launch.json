@@ -16,6 +16,30 @@
             ],
             "django": true,
             "justMyCode": true
+        },
+        {
+            "name": "Django Test",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/Superhero",
+            "args": [
+                "test"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Get Pages",
+            "type": "python",
+            "request": "launch",
+            "program": "manage.py",
+            "cwd": "${workspaceFolder}/Superhero",
+            "args": [
+                "pages"
+            ],
+            "django": true,
+            "justMyCode": true
         }
     ]
 }
