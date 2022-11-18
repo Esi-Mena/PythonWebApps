@@ -64,7 +64,7 @@ class ArticleViewsTest(TestCase):
         Article.objects.create(**self.article2)
         response = self.client.get('/article/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'article/list.html')
+        self.assertTemplateUsed(response, 'article_list.html')
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=3)
 
@@ -86,8 +86,7 @@ class ArticleViewsTest(TestCase):
         # Login to add
         self.login()
         response = self.client.post(reverse('article_add'), self.article1)
-        a = dict(author=self.author, title='Doc Title 2', body='Doc Body 2')
-        response = self.client.post(reverse('article_add'), a)
+        response = self.client.post(reverse('article_add'), self.article2)
         self.assertEqual(response.status_code, 302)
         response = self.client.get(response.url)
         self.assertEqual(len(Article.objects.all()), 2)
@@ -174,7 +173,7 @@ class AuthorViewsTest(TestCase):
         Author.objects.create(**self.author)
         response = self.client.get('/author/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'author/list.html')
+        self.assertTemplateUsed(response, 'author_list.html')
         self.assertTemplateUsed(response, 'theme.html')
         self.assertContains(response, '<tr>', count=2)
 

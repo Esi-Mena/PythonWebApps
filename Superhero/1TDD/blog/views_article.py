@@ -10,18 +10,19 @@ from .views_author import get_author
 class ArticleView(RedirectView):
     url = reverse_lazy('article_list')
 
+
 class ArticleListView(ListView):
-    template_name = 'article/list.html'
+    template_name = 'article_list.html'
     model = Article
 
 
 class ArticleDetailView(DetailView):
-    template_name = 'article/detail.html'
+    template_name = 'article_detail.html'
     model = Article
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
-    template_name = "article/add.html"
+    template_name = "article_add.html"
     model = Article
     fields = '__all__'
 
@@ -31,12 +32,12 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 
 class ArticleUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "article/edit.html"
+    template_name = "article_edit.html"
     model = Article
     fields = '__all__'
 
 
 class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     model = Article
-    template_name = 'article/delete.html'
+    template_name = 'article_delete.html'
     success_url = reverse_lazy('article_list')

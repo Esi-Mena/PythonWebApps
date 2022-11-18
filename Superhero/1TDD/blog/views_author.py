@@ -23,7 +23,7 @@ class AuthorHomeView(RedirectView):
 
 
 class AuthorListView(ListView):
-    template_name = 'author/list.html'
+    template_name = 'author_list.html'
     model = Author
 
     def get_context_data(self, **kwargs):
@@ -32,7 +32,7 @@ class AuthorListView(ListView):
 
 
 class AuthorDetailView(DetailView):
-    template_name = 'author/detail.html'
+    template_name = 'author_detail.html'
     model = Author
 
     def get_context_data(self, **kwargs):
@@ -55,12 +55,12 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class AuthorUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "author/edit.html"
+    template_name = "author_edit.html"
     model = Author
     fields = '__all__'
 
 
 class AuthorDeleteView(LoginRequiredMixin, DeleteView):
     model = Author
-    template_name = 'author/delete.html'
+    template_name = 'author_delete.html'
     success_url = reverse_lazy('author_list')
