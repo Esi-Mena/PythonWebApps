@@ -13,10 +13,12 @@ services:
   http_port: 8080
   instance_count: 1
   instance_size_slug: basic-xxs
-  name: superhero-django
+  name: superhero
   routes:
   - path: /
-  run_command: gunicorn --worker-tmp-dir /dev/shm config.wsgi
+  run_command: |
+    python manage.py migrate --no-input
+    gunicorn --worker-tmp-dir /dev/shm config.wsgi
   source_dir: Superhero
 static_sites:
 - environment_slug: html
