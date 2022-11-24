@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "saiki k",
+        "identity": "School student/ psychic",
+        "description": "He is a student who was born psychic who get annoyed by everyone pretty easily",
+        "image": "None",
+        "strengths": "psychic",
+        "weaknesses": "his attena removed"
+    },
+    {
+        "id": 2,
+        "name": "levi",
+        "identity": "soldier",
+        "description": "he is soldier who fights titans and has been through so much but at the end of the day he will protect those he cares about",
+        "image": "None",
+        "strengths": "wise",
+        "weaknesses": "dead lovers"
+    },
+    {
+        "id": 3,
+        "name": "danny davito",
+        "identity": "icon",
+        "description": "its danny davito thats all you need to know",
+        "image": "None",
+        "strengths": "dany davito",
+        "weaknesses": "No weakness"
+    }
+]
