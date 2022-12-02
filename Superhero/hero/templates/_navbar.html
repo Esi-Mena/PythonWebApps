@@ -2,15 +2,19 @@
 
     <div class="container">
 
-        <a class="navbar-brand text-light" href="/">Breaking News</a>
+        <a class="navbar-brand text-light" href="/">Superhero App</a>
 
         <ul class="navbar-nav text-light ml-auto">
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'author_list' %}">Authors</a>
+                <a class="nav-link text-light" href="{% url 'hero_list' %}">Heroes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" href="{% url 'article_list' %}">News Articles</a>
+                <a class="nav-link text-light" href="{% url 'article_list' %}">Articles</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'photo_list' %}">Photos</a>
+            </li>
+
 
             {% if user.is_authenticated %}
 
@@ -28,7 +32,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link  text-light " href="{% url 'author_add' %}">Sign Up</a>
+                <a class="nav-link  text-light " href="{% url 'signup' %}">Sign Up</a>
             </li>
 
             {% endif %}
